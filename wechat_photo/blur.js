@@ -9,63 +9,62 @@ canvas.height = canvasHeight;
 
 var image = new Image();
 var radius = 50;
-var clippingRegion = { //剪区域
-        x: randomNumber(canvas.width, radius),
-        y: randomNumber(canvas.height, radius),
-        r: radius
-    }
-    ;
 
 image.src = 'image.jpg';
 image.onload = function () {
-    initCanvas();
+    photo.initCanvas();
 };
 
+var photo = {
+    initCanvas: function () {
+        var _this = this;
+        _this.clippingRegion = {
+            x: _this.randomNumber(canvas.width, radius),
+            y: _this.randomNumber(canvas.height, radius),
+            r: radius
+        };
 
-function randomNumber(length, radius) {
-    return Math.random() * (length - 2 * radius) + radius;
-}
+        _this.draw(image);
+    },
+    randomNumber: function (length, radius) {
+        return Math.random() * (length - 2 * radius) + radius;
+    },
+    draw: function (image) {
+        var _this = this;
+        context.clearRect(0, 0, canvas.width, canvas.height);
 
-function initCanvas() {
-    clippingRegion = {
-        x: randomNumber(canvas.width, radius),
-        y: randomNumber(canvas.height, radius),
-        r: radius
-    };
+        context.save();
+        _this.setClippingRegion(_this.clippingRegion);
+        context.drawImage(image, 0, 0);
+        context.restore()
+    },
+    setClippingRegion: function (clippingRegion) {
+        context.beginPath();
+        context.arc(clippingRegion.x, clippingRegion.y, clippingRegion.r, 0, Math.PI * 2, false);
+        context.clip();
+    },
+    show: function () {
+        var _this = this;
+        window.timer = setInterval(function () {
+            _this.clippingRegion.r += 20;
+            var endValue = Math.max(canvas.width, canvas.height) * 2;
+            _this.draw(image);
+            if (_this.clippingRegion.r >= endValue) {
+                clearInterval(window.timer);
+                window.timer = null;
+            }
+        }, 30);
+    },
+    reset: function () {
+        clearInterval(window.timer);
+        window.timer = null;
+        this.initCanvas();
+    }
+};
 
-    draw(image);
-}
-
-function draw(image) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-
-    context.save();
-    setClippingRegion(clippingRegion);
-    console.log(clippingRegion.r);
-    context.drawImage(image, 0, 0);
-    context.restore()
-}
-
-function setClippingRegion(clippingRegion) { //设置剪区域
-    context.beginPath();
-    context.arc(clippingRegion.x, clippingRegion.y, clippingRegion.r, 0, Math.PI * 2, false);
-    context.clip();
-}
-
-function show() {
-    window.timer = setInterval(function () {
-        clippingRegion.r += 20;
-        var endValue = Math.max(canvas.width, canvas.height) * 2;
-        draw(image);
-        if (clippingRegion.r >= endValue) {
-            clearInterval(window.timer);
-            window.timer = null;
-        }
-    }, 30);
-}
-
-function reset() {
-    clearInterval(window.timer);
-    window.timer = null;
-    initCanvas();
-}
+document.getElementById('reset-btn').onclick = function(){
+    photo.reset();
+};
+document.getElementById('show-btn').onclick = function(){
+    photo.show();
+};
