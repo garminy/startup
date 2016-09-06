@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/yuanjiaming/.nvm/versions/node/v5.9.0/bin/node',
+1 verbose cli   '/Users/yuanjiaming/.nvm/versions/node/v5.9.0/bin/npm',
+1 verbose cli   'search',
+1 verbose cli   'yeoman-generator' ]
+2 info using npm@3.8.8
+3 info using node@v5.9.0
+4 verbose config Skipping project config: /Users/yuanjiaming/.npmrc. (matches userconfig)
+5 silly mapToRegistry name -/all
+6 silly mapToRegistry using default registry
+7 silly mapToRegistry registry http://registry.npm.taobao.org/
+8 silly mapToRegistry data Result {
+8 silly mapToRegistry   raw: '-/all',
+8 silly mapToRegistry   scope: null,
+8 silly mapToRegistry   name: null,
+8 silly mapToRegistry   rawSpec: '-/all',
+8 silly mapToRegistry   spec: '-/all',
+8 silly mapToRegistry   type: 'local' }
+9 silly mapToRegistry uri http://registry.npm.taobao.org/-/all
+10 info updateIndex /Users/yuanjiaming/.npm/registry.npm.taobao.org/-/all/.cache.json
+11 verbose correctMkdir /Users/yuanjiaming/.npm correctMkdir not in flight; initializing
+12 warn Building the local index for the first time, please be patient
+13 silly update-index fetching http://registry.npm.taobao.org/-/all
+14 verbose request uri http://registry.npm.taobao.org/-/all
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 11:49:46
+17 verbose request id bd2c5aa90addf207
+18 http request GET http://registry.npm.taobao.org/-/all
+19 http 200 http://registry.npm.taobao.org/-/all
+20 verbose headers { server: 'nginx/1.4.6 (Ubuntu)',
+20 verbose headers   date: 'Tue, 06 Sep 2016 03:49:50 GMT',
+20 verbose headers   'content-type': 'application/json; charset=utf-8',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-current-requests': '1',
+20 verbose headers   'x-readtime': '2772',
+20 verbose headers   'content-encoding': 'gzip' }
+21 verbose stack Error: true true: -/all
+21 verbose stack     at makeError (/Users/yuanjiaming/.nvm/versions/node/v5.9.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+21 verbose stack     at CachingRegistryClient.<anonymous> (/Users/yuanjiaming/.nvm/versions/node/v5.9.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+21 verbose stack     at /Users/yuanjiaming/.nvm/versions/node/v5.9.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:178:7
+21 verbose stack     at Gunzip.onEnd (zlib.js:227:5)
+21 verbose stack     at emitNone (events.js:85:20)
+21 verbose stack     at Gunzip.emit (events.js:179:7)
+21 verbose stack     at endReadableNT (_stream_readable.js:913:12)
+21 verbose stack     at _combinedTickCallback (node.js:383:13)
+21 verbose stack     at process._tickCallback (node.js:407:11)
+22 verbose statusCode 200
+23 verbose cwd /Users/yuanjiaming/Documents/mine/startup
+24 error Darwin 15.0.0
+25 error argv "/Users/yuanjiaming/.nvm/versions/node/v5.9.0/bin/node" "/Users/yuanjiaming/.nvm/versions/node/v5.9.0/bin/npm" "search" "yeoman-generator"
+26 error node v5.9.0
+27 error npm  v3.8.8
+28 error code E200
+29 error true true: -/all
+30 error If you need help, you may report this error at:
+30 error     <https://github.com/npm/npm/issues>
+31 verbose exit [ 1, true ]

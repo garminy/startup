@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <!-- 删除默认iphone tool column and menu column-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" href="blur.css"/>
+    <script src="../libs/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<div id="blur-div">
+    <img id="image" src="image.jpg" alt=""/>
+    <canvas id="canvas"></canvas>
+    <a href="javascript:reset()" id="reset-btn">reset</a>
+    <a href="javascript:show()" id="show-btn">show</a>
+</div>
+<script src="blur.js"></script>
+</body>
+</html>
